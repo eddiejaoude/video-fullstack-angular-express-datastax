@@ -26,7 +26,11 @@ app.get("/events", async (req, res) => {
     .namespace("angularvideo")
     .collection("events");
 
-  events = await eventsCollection.find({});
+  if (req.query.search) {
+    events = await eventsCollection.find({ name: { $eq: req.query.search } });
+  } else {
+    events = await eventsCollection.find({});
+  }
 
   res.send(
     Object.keys(events).map((key) => {

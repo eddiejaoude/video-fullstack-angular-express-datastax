@@ -25,6 +25,12 @@ export class AppComponent {
       .subscribe((data: any) => (this.events = data));
   }
 
+  search(data: { search: string }) {
+    this.http
+      .get(`http://localhost:3000/events`, { params: { ...data } })
+      .subscribe((data: any) => (this.events = data));
+  }
+
   submit(data: FormData): void {
     this.http
       .post('http://localhost:3000/events', data)

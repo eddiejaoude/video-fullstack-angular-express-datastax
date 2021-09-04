@@ -1,5 +1,13 @@
 <h2>Events</h2>
 
+<form (ngSubmit)="search(form.value)" #form="ngForm">
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input matInput placeholder="Placeholder" name="search" ngModel>
+  </mat-form-field>
+  <button mat-raised-button>Search</button>
+</form>
+
 <form (ngSubmit)="submit(form.value)" #form="ngForm">
   <mat-form-field>
     <mat-label>Name</mat-label>
