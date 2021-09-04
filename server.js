@@ -8,17 +8,20 @@ const port = 3000;
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
+const client = async () => {
+  return await createClient({
+    astraDatabaseId: process.env.ASTRA_DB_ID,
+    astraDatabaseRegion: process.env.ASTRA_DB_REGION,
+    applicationToken: process.env.ASTRA_DB_APPLICATION_TOKEN,
+  });
+};
+
 app.get("/", (req, res) => {
   res.send({ name: "hello world" });
 });
 
 app.get("/events", async (req, res) => {
-  const astraClient = await createClient({
-    astraDatabaseId: process.env.ASTRA_DB_ID,
-    astraDatabaseRegion: process.env.ASTRA_DB_REGION,
-    applicationToken: process.env.ASTRA_DB_APPLICATION_TOKEN,
-  });
-
+  const astraClient = await client();
   const eventsCollection = astraClient
     .namespace("angularvideo")
     .collection("events");
@@ -33,6 +36,20 @@ app.get("/events", async (req, res) => {
       };
     })
   );
+});
+
+app.post("/events", async (req, res) => {
+  const astraClient = await client();
+  const eventsCollection = astraClient
+    .namespace("angularvideo")
+    .collection("events");
+
+  const event = await eventsCollection.create(req.body);
+
+  res.send({
+    id: event.documentId,
+    ...req.body,
+  });
 });
 
 app.listen(port, () => {

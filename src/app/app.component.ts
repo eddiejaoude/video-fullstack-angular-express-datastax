@@ -24,4 +24,10 @@ export class AppComponent {
       .get('http://localhost:3000/events')
       .subscribe((data: any) => (this.events = data));
   }
+
+  submit(data: FormData): void {
+    this.http
+      .post('http://localhost:3000/events', data)
+      .subscribe((data: any) => this.events.push(data));
+  }
 }

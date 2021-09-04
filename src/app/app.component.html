@@ -1,5 +1,21 @@
 <h2>Events</h2>
 
+<form (ngSubmit)="submit(form.value)" #form="ngForm">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Placeholder" name="name" ngModel>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Date</mat-label>
+    <input matInput placeholder="Placeholder" name="date" ngModel>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Url</mat-label>
+    <input matInput placeholder="Placeholder" name="url" ngModel>
+  </mat-form-field>
+  <button mat-raised-button>Save</button>
+</form>
+
 <mat-list *ngIf="events.length > 0">
   <mat-list-item *ngFor="let event of events">
     <mat-icon mat-list-icon>folder</mat-icon>
