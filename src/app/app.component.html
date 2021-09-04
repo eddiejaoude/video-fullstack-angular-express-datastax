@@ -1,5 +1,9 @@
 <h2>Events</h2>
 
-<ul *ngIf="events.length > 0">
-  <li *ngFor="let event of events">{{ event.name }}, {{ event.date }}, {{ event.url }}</li>
-</ul>
+<mat-list *ngIf="events.length > 0">
+  <mat-list-item *ngFor="let event of events">
+    <mat-icon mat-list-icon>folder</mat-icon>
+    <div mat-line>{{ event.name }}, {{ event.date }}</div>
+    <div mat-line>{{ event.url }}</div>
+  </mat-list-item>
+</mat-list>
