@@ -1,27 +1,20 @@
-# AngularDemo
+## Fullstack app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
+Using
+- Angular
+- Express
+- DataStax's cloud NoSQL database Astra DB http://links.eddiejaoude.io/t/as9YPlSpoZXc
 
-## Development server
+In this tutorial you will learn how to build a fullstack app using Angular and ExpressJS with DataStax's cloud NoSQL database Astra DB. The features we will be building are:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- list events
+- create event
+- filter events
 
-## Code scaffolding
+The web app will be a single page; with search at the top, followed by the form to create an event, then below both of the forms will be a list of the saved events. The web app will load the list of events over the RESTful API using a GET request, which is the same for the search form. When submitting a new event via the form, the web app will send a RESTful POST request to the API which will save the body of the POST request in the database.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+By using these open source tools such as MVC framework Angular, Material UI Design, RESTful APIs and NoSQL database, you will be gaining a foundation for making most apps, allowing you to create your ideas into real projects.
 
-## Build
+YouTube Video https://www.youtube.com/watch?v=m1MFbHbyijQ
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![screenshot](https://user-images.githubusercontent.com/624760/134366609-c1f3e10c-3be5-445a-83c2-7c21366567c0.png)
